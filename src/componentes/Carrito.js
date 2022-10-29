@@ -10,7 +10,7 @@ export const Carrito=(props)=>{
 
     const terminarCompra = () => {
 
-        if(productos_tienda.length>=0)
+        if(productos_tienda.length<=0)
         {
             Swal.fire(
                 'Carrito Vacio',

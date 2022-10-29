@@ -26,6 +26,7 @@ const Navegador = () => {
             {/* rutas */}
             <Routes>
                 <Route path="/" element={<Tienda/>} />
+                <Route path="/comprobante" element={<Comprobante/>} />
                 <Route path="*" element={<div><p className="lead fs-2 text-primary">Pagina no encontrada</p></div>} />
             </Routes>
 
