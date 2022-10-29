@@ -9,8 +9,6 @@ export const data={
         {id:6, nombre:'Frejoles',precio:5.56, calificacion:7, imagen:'https://plazavea.vteximg.com.br/arquivos/ids/550677-1000-1000/1603.jpg'},
         {id:7, nombre:'Filete Atun',precio:6.50, calificacion:6, imagen:'https://plazavea.vteximg.com.br/arquivos/ids/553446-1000-1000/66593.jpg'},
 
-    ],
-
-    productosTienda:[]
+    ]
 
 }

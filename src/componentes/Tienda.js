@@ -5,13 +5,12 @@ import {data} from '../data';
 
 export const Tienda=()=>{
 
-    const {productos,productosTienda}=data;
+    const {productos}=data;
 
     const [productosT,setProductosT]=useState([]);
 
     const agregarProducto=(producto)=>{
 
-        console.log(producto);
         setProductosT([...productosT,producto]);
     }
 

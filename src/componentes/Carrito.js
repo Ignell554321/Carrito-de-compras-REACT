@@ -1,12 +1,55 @@
 
-import { NavLink } from 'react-router-dom';
-import {data} from '../data';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export const Carrito=(props)=>{
 
     const {productos_tienda}=props;
 
-    console.log(productos_tienda);
+    const navigate = useNavigate();
+
+    const terminarCompra = () => {
+
+        if(productos_tienda.length>=0)
+        {
+            Swal.fire(
+                'Carrito Vacio',
+                'Tu Carrito esta vacio, ingresa al menos 1 producto',
+                'warning'
+              )
+
+        }else{
+            Swal.fire({
+                title: 'Seguro que deseas terminar de comprar?',
+                text: "Ya no podras seguir agregando productos al carrito",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, pagar'
+              }).then((result) => {
+    
+                if (result.isConfirmed) {
+    
+                  Swal.fire(
+                    'Compra pagada correctamente',
+                    'Muchas gracias por tu preferencia',
+                    'success'
+                  ).then((result) => {
+                    
+                    if (result.isConfirmed) {
+                        navigate('/comprobante',{ state: {productos_tienda:productos_tienda} });
+                    }
+    
+                  })
+                }
+              })
+        }
+
+        
+
+        
+    } 
 
     return(
 
@@ -61,9 +104,9 @@ export const Carrito=(props)=>{
                 <div className="col ">
 
                    
-                    <NavLink   to={`/comprobante`} className="btn btn-success w-100" >    
+                    <button   onClick={terminarCompra} className="btn btn-success w-100" state={{productos_tienda:productos_tienda}}>    
                         Ir a Pagar
-                    </NavLink>
+                    </button>
                             
 
                 </div>

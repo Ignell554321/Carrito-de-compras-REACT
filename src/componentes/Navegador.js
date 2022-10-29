@@ -4,7 +4,6 @@ import { Comprobante } from "./Comprobante";
 
 const Navegador = () => {
 
-
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -18,13 +17,7 @@ const Navegador = () => {
                             <li className="nav-item">
                                 <Link to="/" className="nav-link active">Tienda</Link>
                             </li>
-                            
-                            <li className="nav-item">
-                                <Link to="/compras" className="nav-link active">Ver Compras</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link to="/comprobante" className="nav-link active">Comprobante</Link>
-                            </li>
+                        
                         </ul>
                     </div>
                 </div>
@@ -33,7 +26,6 @@ const Navegador = () => {
             {/* rutas */}
             <Routes>
                 <Route path="/" element={<Tienda/>} />
-                <Route path="/comprobante" element={<Comprobante/>} />
                 <Route path="*" element={<div><p className="lead fs-2 text-primary">Pagina no encontrada</p></div>} />
             </Routes>
 

@@ -1,12 +1,12 @@
 
-//import {data} from '../data';
-
 import { useState } from "react";
 
 export const Productos=(props)=>{
 
 
     const {agregarProductosTienda,listaProductos}=props;
+
+    
 
     const [producto,setProducto]=useState({
 
@@ -33,8 +33,14 @@ export const Productos=(props)=>{
                 id:id,
                 nombre:nombre,
                 precio:precio,
-                imagen:imagen
+                imagen:imagen,
+                cantidad:1,
+                subtotal:1*precio
             });
+
+            document.getElementById('txtCantidad').value=1;
+            document.getElementById('txtSubtotal').value=1*precio;
+
 
     }
 
@@ -57,11 +63,6 @@ export const Productos=(props)=>{
 
     const agregarProducto=()=>{
 
-        /*let subtotal=document.getElementById("txtSubtotal").value;
-        let cantidad= document.getElementById("txtCantidad").value;
-        let id= document.getElementById("txtCantidad").value;
-        let producto={id:1, nombre:'Leche evaporada', precio:4.5, cantidad: cantidad, subtotal:subtotal, imagen:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStVtmydUkyQS1ZTUVqui4TIC4nSX_FY7vNzQ&usqp=CAU' };
-        */
         agregarProductosTienda(producto);
     }
 
@@ -124,13 +125,13 @@ export const Productos=(props)=>{
 
                                         <label>Cantidad:</label>
                                         <input onChange={(e)=>{calcularSubtotal(e)}} id="txtCantidad" className='form-control form-control-sm' type="number" min="0"/>
-                                    
+
                                     </div>
 
                                     <div className='form-group ms-2'>
 
                                         <label>Subtotal:</label>
-                                        <input className='form-control form-control-sm' id="txtSubtotal" type="text" disabled min="0"/>
+                                        <input className='form-control form-control-sm' id="txtSubtotal" type="text" disabled min="0" />
                                     
                                     </div>
 
@@ -146,7 +147,7 @@ export const Productos=(props)=>{
                     <div className="modal-footer">
 
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" className="btn btn-primary" onClick={agregarProducto}>Agregar</button>
+                            <button type="button" className="btn btn-primary" onClick={agregarProducto} data-bs-dismiss="modal" >Agregar</button>
                         
                     </div>
 
