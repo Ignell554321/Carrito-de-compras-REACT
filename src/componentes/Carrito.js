@@ -1,4 +1,5 @@
 
+import { NavLink } from 'react-router-dom';
 import {data} from '../data';
 
 export const Carrito=(props)=>{
@@ -59,7 +60,11 @@ export const Carrito=(props)=>{
 
                 <div className="col ">
 
-                    <button className="btn btn-success w-100">Ir a Pagar</button>
+                   
+                    <NavLink   to={`/comprobante`} className="btn btn-success w-100" >    
+                        Ir a Pagar
+                    </NavLink>
+                            
 
                 </div>
 
